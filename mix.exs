@@ -33,12 +33,12 @@ defmodule Identificator.Mixfile do
     [
       {:phoenix, "~> 1.1.4"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_ecto, "~> 2.0"},
+      {:phoenix_ecto, ">= 3.0.0-beta"},
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.9"},
       {:cowboy, "~> 1.0"},
-      {:guardian, "~> 0.10.0"},
+      {:guardian, github: "potatosalad/guardian", branch: "custom-secret-keys"},
       {:cutkey, github: "potatosalad/cutkey"}
     ]
   end
