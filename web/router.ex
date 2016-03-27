@@ -1,4 +1,6 @@
 defmodule Identificator.Router do
+  @moduledoc false
+
   use Identificator.Web, :router
 
   pipeline :browser do

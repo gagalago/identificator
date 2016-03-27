@@ -1,4 +1,6 @@
 defmodule Identificator.ErrorView do
+  @moduledoc false
+
   use Identificator.Web, :view
 
   def render("404.html", _assigns) do

@@ -1,5 +1,6 @@
 identificator
 =============
+[![Build Status](https://travis-ci.org/gagalago/identificator.svg?branch=master)](https://travis-ci.org/gagalago/identificator)
 
 To generate rsa keys
 --------------------
