@@ -1,4 +1,6 @@
 language: elixir
+elixir:
+  - 1.2.0
 env: MIX_ENV=test
 sudo: false # faster builds
 notifications:
@@ -7,3 +9,7 @@ script:
   - mix compile --warnings-as-errors
   - mix test
   - mix credo
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database identificator_test;' -U postgres

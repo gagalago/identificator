@@ -39,7 +39,8 @@ defmodule Identificator.Mixfile do
       {:gettext, "~> 0.9"},
       {:cowboy, "~> 1.0"},
       {:guardian, github: "potatosalad/guardian", branch: "custom-secret-keys"},
-      {:cutkey, github: "potatosalad/cutkey"}
+      {:cutkey, github: "potatosalad/cutkey"},
+      {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end
 
