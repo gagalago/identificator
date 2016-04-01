@@ -1,4 +1,4 @@
-defmodule Identificator.PageController do
+defmodule Identificator.RootController do
   @moduledoc false
 
   use Identificator.Web, :controller

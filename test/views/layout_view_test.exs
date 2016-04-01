@@ -1,3 +1,3 @@
 defmodule Identificator.LayoutViewTest do
-  use Identificator.ConnCase, async: true
+  use Identificator.ConnCase
 end

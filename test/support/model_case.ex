@@ -1,15 +1,13 @@
 defmodule Identificator.ModelCase do
   @moduledoc """
-  This module defines the test case to be used by
-  model tests.
+  This module defines the test case to be used by model tests.
 
-  You may define functions here to be used as helpers in
-  your model tests. See `errors_on/2`'s definition as reference.
+  You may define functions here to be used as helpers in your model tests. See `errors_on/2`'s
+  definition as reference.
 
-  Finally, if the test case interacts with the database,
-  it cannot be async. For this reason, every test runs
-  inside a transaction which is reset at the beginning
-  of the test unless the test case is marked as async.
+  Finally, if the test case interacts with the database, it must use the tag :db. For this reason,
+  every test runs inside a transaction which is reset at the   beginning of the test if the test
+  case is marked as db.
   """
 
   use ExUnit.CaseTemplate
@@ -36,10 +34,11 @@ defmodule Identificator.ModelCase do
   @doc """
   Helper for returning list of errors in model when passed certain data.
 
-  ## Examples
+  Examples
+  --------
 
-  Given a User model that lists `:name` as a required field and validates
-  `:password` to be safe, it would return:
+  Given a User model that lists `:name` as a required field and validates `:password` to be safe,
+  it would return:
 
       iex> errors_on(%User{}, %{password: "password"})
       [password: "is unsafe", name: "is blank"]
@@ -48,8 +47,7 @@ defmodule Identificator.ModelCase do
 
       assert {:password, "is unsafe"} in errors_on(%User{}, %{password: "password"})
 
-  You can also create the changeset manually and retrieve the errors
-  field directly:
+  You can also create the changeset manually and retrieve the errors field directly:
 
       iex> changeset = User.changeset(%User{}, password: "password")
       iex> {:password, "is unsafe"} in changeset.errors

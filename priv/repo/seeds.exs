@@ -2,10 +2,9 @@
 #
 #     mix run priv/repo/seeds.exs
 #
-# Inside the script, you can read and write to any of your
-# repositories directly:
+# Inside the script, you can read and write to any of your repositories directly:
 #
 #     Identificator.Repo.insert!(%Identificator.SomeModel{})
 #
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# We recommend using the bang functions (`insert!`, `update!` and so on) as they will fail if
+# something goes wrong.
