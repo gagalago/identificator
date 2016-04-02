@@ -31,7 +31,7 @@ defmodule Identificator.ConnCase do
     end
   end
 
-  setup tags do
+  setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identificator.Repo)
 
     {:ok, conn: Phoenix.ConnTest.conn()}
