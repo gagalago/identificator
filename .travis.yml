@@ -1,6 +1,6 @@
 language: elixir
 elixir:
-  - 1.2.0
+  - 1.2.4
 env: MIX_ENV=test
 sudo: false # faster builds
 notifications:
@@ -8,7 +8,7 @@ notifications:
 script:
   - mix compile --warnings-as-errors
   - mix test
-  - mix credo
+  - mix credo --strict
   - mix dogma
 services:
   - postgresql
