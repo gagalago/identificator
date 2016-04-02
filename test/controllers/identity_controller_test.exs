@@ -2,7 +2,7 @@ defmodule Identificator.IdentityControllerTest do
   use Identificator.ConnCase, db: true
 
   alias Identificator.Identity
-  @valid_attrs fields_for(:identity) |> Enum.filter(fn {_, v} -> v != nil end) |> Enum.into(%{})
+  @valid_attrs :identity |> fields_for |> Enum.filter(fn {_, v} -> v != nil end) |> Enum.into(%{})
   @invalid_attrs %{}
 
   setup %{conn: conn} do
