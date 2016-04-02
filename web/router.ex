@@ -23,5 +23,7 @@ defmodule Identificator.Router do
 
   scope "/api", Identificator do
     pipe_through :api
+
+    resources "/identities", IdentityController, only: [:show, :index, :create, :update, :delete]
   end
 end

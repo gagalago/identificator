@@ -29,9 +29,7 @@ defmodule Identificator.ChannelCase do
   end
 
   setup tags do
-    if tags[:db] do
-      :ok = Ecto.Adapters.SQL.Sandbox.checkout(TestRepo)
-    end
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identificator.Repo)
 
     :ok
   end

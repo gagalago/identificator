@@ -17,7 +17,7 @@
         #
         # you can give explicit globs or simply directories
         # in the latter case `**/*.{ex,exs}` will be used
-        included: ["lib/", "src/", "web/", "apps/"],
+        included: ["lib/", "src/", "web/", "apps/", "test/", "features/"],
         excluded: []
       },
       #
@@ -34,7 +34,7 @@
       checks: [
         {Credo.Check.Readability.MaxLineLength, priority: :low, max_length: 100}, # FIXME only this line is changed but i have copy all the file that
         {Credo.Check.Readability.ModuleAttributeNames},
-        {Credo.Check.Readability.ModuleDoc},
+        {Credo.Check.Readability.ModuleDoc, false},
         {Credo.Check.Readability.ModuleNames},
         {Credo.Check.Readability.PredicateFunctionNames},
         {Credo.Check.Readability.TrailingBlankLine},

@@ -24,15 +24,15 @@ defmodule Identificator.ConnCase do
 
       import Identificator.Router.Helpers
 
+      import Identificator.Factory
+
       # The default endpoint for testing
       @endpoint Identificator.Endpoint
     end
   end
 
   setup tags do
-    if tags[:db] do
-      :ok = Ecto.Adapters.SQL.Sandbox.checkout(TestRepo)
-    end
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identificator.Repo)
 
     {:ok, conn: Phoenix.ConnTest.conn()}
   end

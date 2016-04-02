@@ -20,13 +20,13 @@ defmodule Identificator.ModelCase do
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
       import Identificator.ModelCase
+
+      import Identificator.Factory
     end
   end
 
   setup tags do
-    if tags[:db] do
-      :ok = Ecto.Adapters.SQL.Sandbox.checkout(TestRepo)
-    end
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identificator.Repo)
 
     :ok
   end

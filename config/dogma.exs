@@ -3,6 +3,10 @@ alias Dogma.Rule
 
 config :dogma,
   rule_set: Dogma.RuleSet.All,
+  exclude: [
+    ~r(\Alib/vendor/)
+  ],
   override: [
-    %Rule.LineLength{ max_length: 100 }
+    %Rule.LineLength{max_length: 100},
+    %Rule.ModuleDoc{enabled: false}
   ]

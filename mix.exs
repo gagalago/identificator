@@ -17,9 +17,10 @@ defmodule Identificator.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Identificator, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+    [
+      mod: {Identificator, []},
+      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex]
+    ]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +43,9 @@ defmodule Identificator.Mixfile do
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:dogma, "~> 0.1.4", only: [:dev, :test]},
-      {:white_bread, "~> 2.5.0", only: [:dev, :test]}
+      {:white_bread, "~> 2.5.0", only: :test},
+      {:ex_machina, "~> 0.6.1", only: :test},
+      {:faker, "~> 0.6", only: :test}
     ]
   end
 
@@ -53,7 +56,9 @@ defmodule Identificator.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"]]
+    [
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"]
+    ]
   end
 end
