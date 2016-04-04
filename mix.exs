@@ -45,7 +45,7 @@ defmodule Identificator.Mixfile do
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:dogma, "~> 0.1.4", only: [:dev, :test]},
-      {:white_bread, "~> 2.5.0", only: :test},
+      {:white_bread, "~> 2.5.0", only: [:dev, :test]},
       {:ex_machina, "~> 0.6.1", only: :test},
       {:faker, "~> 0.6", only: :test}
     ]

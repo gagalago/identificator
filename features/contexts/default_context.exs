@@ -13,47 +13,15 @@ defmodule Identificator.DefaultContext do
     {:unimplemted, state}
   end
 
-  when_ ~r/^He give an email and password$/, fn state ->
+  given_ ~r/^An signed in user$/, fn state ->
     {:unimplemted, state}
   end
 
-  and_ ~r/^He has receive an validation url$/, fn state ->
+  given_ ~r/^An signed out user with an account and an email$/, fn state ->
     {:unimplemted, state}
   end
 
-  when_ ~r/^He ask to recover his password$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  then_ ~r/^An unconfirmed account is created for this user$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  when_ ~r/^He go to this url$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  then_ ~r/^He receive an email with an url to change his password$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  when_ ~r/^He go on an url to change his password$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  and_ ~r/^He receive an email with an url to validate his account$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  then_ ~r/^His account is validated$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  and_ ~r/^he provide his previous and next password$/, fn state ->
-    {:unimplemted, state}
-  end
-
-  and_ ~r/^His account is updated$/, fn state ->
+  given_ ~r/^An user with an unvalidated email and password identity$/, fn state ->
     {:unimplemted, state}
   end
 end
