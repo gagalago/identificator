@@ -7,7 +7,7 @@ Feature: Multiple provider
     Then The previous and the new identity belongs to this user
     And He receives an signature of his identity
 
-  Scenario: Validate and merge on email
+  Scenario: distinct user with same email
     Given An signed out user with an account and an email
     When He has create a new account with the email and a password
     Then The previous and the new identity belongs to different user
@@ -18,4 +18,10 @@ Feature: Multiple provider
     And Another user with an account with the same email
     When He valids his email
     Then The previous and the new identity belongs to the same merged user
+    And He receives an signature of his identity
+
+  Scenario: connection and merge on email
+    Given An signed out user with an account and an email on a provider
+    When He login with another new oauth provider with the same email
+    Then The previous and the new identity belongs to the same user based on email
     And He receives an signature of his identity

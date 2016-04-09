@@ -27,9 +27,11 @@ Feature: Password identification
 
   Scenario: Change password
     Given An user with an account
-    When He goes on an url to change his password
+    And He has receive an recover password url
+    When He goes on that url to change his password
     And he provides his previous and next password
-    Then His account is updated
+    Then His account is validated
+    And His password is updated
     And He receives an signature of his identity
 
   Scenario: Authentication fail
