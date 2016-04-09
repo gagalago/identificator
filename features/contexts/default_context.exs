@@ -24,4 +24,12 @@ defmodule Identificator.DefaultContext do
   given_ ~r/^An user with an unvalidated email and password identity$/, fn state ->
     {:unimplemted, state}
   end
+
+  given_ ~r/^An signed in gest user$/, fn state ->
+    {:unimplemted, state}
+  end
+
+  given_ ~r/^An signed out user with an account and an email on a provider$/, fn state ->
+    {:unimplemted, state}
+  end
 end

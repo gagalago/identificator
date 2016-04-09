@@ -39,13 +39,13 @@ defmodule Identificator.Mixfile do
       {:phoenix_ecto, ">= 3.0.0-beta"},
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.9"},
+      {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:guardian, github: "potatosalad/guardian", branch: "custom-secret-keys"},
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:dogma, "~> 0.1.4", only: [:dev, :test]},
-      {:white_bread, "~> 2.5.0", only: [:dev, :test]},
+      {:white_bread, "~> 2.6", only: [:dev, :test]},
       {:ex_machina, "~> 0.6.1", only: :test},
       {:faker, "~> 0.6", only: :test}
     ]

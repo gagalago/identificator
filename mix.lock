@@ -3,7 +3,7 @@
   "connection": {:hex, :connection, "1.0.2"},
   "cowboy": {:hex, :cowboy, "1.0.4"},
   "cowlib": {:hex, :cowlib, "1.0.2"},
-  "credo": {:hex, :credo, "0.3.10"},
+  "credo": {:hex, :credo, "0.3.11"},
   "cutkey": {:git, "https://github.com/potatosalad/cutkey.git", "00e3ce92da8360c2c943ad0431b54cb710d6d454", []},
   "db_connection": {:hex, :db_connection, "0.2.5"},
   "decimal": {:hex, :decimal, "1.1.1"},
@@ -12,8 +12,8 @@
   "ex_machina": {:hex, :ex_machina, "0.6.1"},
   "faker": {:hex, :faker, "0.6.0"},
   "fs": {:hex, :fs, "0.9.2"},
-  "gettext": {:hex, :gettext, "0.10.0"},
-  "guardian": {:git, "https://github.com/potatosalad/guardian.git", "4ef9dd72d14027d797cdebcadcb18de7d32ab73d", [branch: "custom-secret-keys"]},
+  "gettext": {:hex, :gettext, "0.11.0"},
+  "guardian": {:git, "https://github.com/potatosalad/guardian.git", "667bfc5437193b2d5d14ff91234e1e99f6078648", [branch: "custom-secret-keys"]},
   "jose": {:hex, :jose, "1.7.3"},
   "phoenix": {:hex, :phoenix, "1.1.4"},
   "phoenix_ecto": {:hex, :phoenix_ecto, "3.0.0-beta.2"},
@@ -25,4 +25,4 @@
   "postgrex": {:hex, :postgrex, "0.11.1"},
   "ranch": {:hex, :ranch, "1.2.1"},
   "uuid": {:hex, :uuid, "1.1.3"},
-  "white_bread": {:hex, :white_bread, "2.5.0"}}
+  "white_bread": {:hex, :white_bread, "2.6.1"}}
