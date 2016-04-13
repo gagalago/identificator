@@ -7,18 +7,24 @@ Feature: Password identification
     When He gives his email and password
     Then He receives an signature of his identity
 
-  Scenario: Create an account
+  Scenario: Create an account with password
     Given An unknow user
     When He gives an email and password
     Then An unconfirmed account is created for this user
     And He receives an email with an url to validate his account
 
-  Scenario: Validate an account
+  Scenario: Validate an account with password
     Given An user with an unvalidated account
     And He has receive an validation url
     When He goes to this url
     Then His account is validated
     And He receives an signature of his identity
+
+  Scenario: Create an account without password
+    Given An unknow user
+    When He gives an email
+    Then An unconfirmed account is created for this user
+    And He receives an email with an url to change his password
 
   Scenario: Recover password
     Given An user with an account
