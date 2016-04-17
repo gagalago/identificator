@@ -2,7 +2,7 @@ defmodule Identificator.DefaultContext do
   use WhiteBread.Context
 
   given_ ~r/^An unknow user$/, fn state ->
-    {:ok, state}
+    {:unimplemted, state}
   end
 
   given_ ~r/^An user with an unvalidated account$/, fn state ->
@@ -34,8 +34,8 @@ defmodule Identificator.DefaultContext do
   end
 
   when_ ~r/^He gives an email and password$/, fn state ->
-    
-    {:ok, state}
+
+    {:unimplemted, state}
   end
 
   then_ ~r/^An unconfirmed account is created for this user$/, fn state ->
@@ -43,6 +43,6 @@ defmodule Identificator.DefaultContext do
   end
 
   when_ ~r/^He gives an email$/, fn state ->
-    {:ok, state}
+    {:unimplemted, state}
   end
 end

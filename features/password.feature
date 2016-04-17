@@ -39,8 +39,3 @@ Feature: Password identification
     Then His account is validated
     And His password is updated
     And He receives an signature of his identity
-
-  Scenario: Authentication fail
-    Given An user with an account
-    When He fails to give his email and password
-    Then He see an error that says that the couple email and password cannot be fount
