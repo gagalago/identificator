@@ -4,7 +4,7 @@ Feature: Password identification
 
   Scenario: Connection
     Given An user with an account
-    When He gives his email and password
+    When He gives an email and password
     Then He receives an signature of his identity
 
   Scenario: Create an account with password
