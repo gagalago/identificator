@@ -25,7 +25,11 @@ defmodule Identificator.ErrorHelpers do
     #
     #     dngettext "errors", "1 file", "%{count} files", count
     #
-    Gettext.dngettext(Identificator.Gettext, "errors", msg, msg, opts[:count], opts)
+    if count = opts[:count] do
+      Gettext.dngettext(Identificator.Gettext, "errors", msg, msg, count || 0, opts)
+    else
+      Gettext.dgettext(Identificator.Gettext, "errors", msg, opts)
+    end
   end
 
   def translate_error(msg) do
