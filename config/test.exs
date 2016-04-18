@@ -9,6 +9,7 @@ config :identificator, Identificator.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
+config :identificator, ecto_repos: [Identificator.Repo]
 config :identificator, Identificator.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",

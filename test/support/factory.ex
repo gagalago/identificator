@@ -10,6 +10,7 @@ defmodule Identificator.Factory do
       email: Faker.Internet.email,
       id: Ecto.UUID.generate,
       provider: "email",
+      provider_id: Ecto.UUID.generate,
       user_id: Ecto.UUID.generate
     }
   end

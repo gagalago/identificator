@@ -25,5 +25,6 @@ defmodule Identificator.Router do
     pipe_through :api
 
     resources "/identities", IdentityController, only: [:show, :index, :create, :update, :delete]
+    resources "/registration", RegistrationController, only: [:create]
   end
 end
