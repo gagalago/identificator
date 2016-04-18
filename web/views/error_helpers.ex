@@ -25,7 +25,8 @@ defmodule Identificator.ErrorHelpers do
     #
     #     dngettext "errors", "1 file", "%{count} files", count
     #
-    if count = opts[:count] do
+    count = opts[:count]
+    if count do
       Gettext.dngettext(Identificator.Gettext, "errors", msg, msg, count || 0, opts)
     else
       Gettext.dgettext(Identificator.Gettext, "errors", msg, opts)

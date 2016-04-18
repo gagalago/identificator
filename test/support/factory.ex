@@ -8,7 +8,6 @@ defmodule Identificator.Factory do
       auth_settings: %{},
       data: %{},
       email: Faker.Internet.email,
-      id: Ecto.UUID.generate,
       provider: "email",
       provider_id: Ecto.UUID.generate,
       user_id: Ecto.UUID.generate

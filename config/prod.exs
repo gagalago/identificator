@@ -20,6 +20,7 @@ config :identificator, Identificator.Endpoint,
 config :logger, level: :info
 
 # Configure your database
+config :identificator, ecto_repos: [Identificator.Repo]
 config :identificator, Identificator.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),

@@ -27,6 +27,8 @@ defmodule Identificator.Identity do
     |> cast(params, @required_fields, @optional_fields)
     |> validate_format(:email, ~r/[\w.-]+@[\w.-]+\.[\w]{2,}/)
     |> validate_inclusion(:provider, @providers)
+    |> unique_constraint(:email, name: :identities_provider_email_index)
+    |> unique_constraint(:provider_id, name: :identities_provider_provider_id_index)
     |> unique_constraint(:id)
   end
 
@@ -38,17 +40,8 @@ defmodule Identificator.Identity do
     |> cast(params, ~w(email password), @optional_fields)
     |> put_change(:provider_id, params["email"])
     |> put_change(:provider, "email")
-    |> hash_password
+    |> validate_length(:password, min: 8)
+    |> put_change(:auth_settings, %{"password" => hashpwsalt(params["password"])})
     |> changeset
-  end
-
-  defp hash_password(changeset) do
-    if password = get_change(changeset, :password) do
-      changeset
-      |> validate_length(:password, min: 8)
-      |> put_change(:auth_settings, %{"password" => hashpwsalt(password)})
-    else
-      changeset
-    end
   end
 end

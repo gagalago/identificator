@@ -11,11 +11,11 @@ defmodule Identificator.RegistrationControllerTest do
   test "create an identity when data is valid", %{conn: conn} do
     conn  = post conn, registration_path(conn, :create), registration: @attrs
     assert json_response(conn, 201)["data"]["id"]
-    assert Repo.get_by(Identity, %{provider: :email, email: @attrs.email})
+    assert Repo.get_by(Identity, %{provider: "email", email: @attrs.email})
   end
 
   test "does not create an identity when email is already used", %{conn: conn} do
-    identity = create :identity, email: @attrs.email
+    create :identity, %{email: @attrs.email}
     conn  = post conn, registration_path(conn, :create), registration: @attrs
     assert json_response(conn, 422)["errors"] != %{}
   end

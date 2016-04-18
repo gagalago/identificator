@@ -16,10 +16,10 @@ defmodule Identificator.Repo.Migrations.CreateIdentity do
       timestamps
     end
 
-    create index(:identities, [:id])
+    create unique_index(:identities, [:id])
     create index(:identities, [:user_id])
-    create index(:identities, [:provider, :provider_id])
-    create index(:identities, [:provider, :email])
+    create unique_index(:identities, [:provider, :provider_id])
+    create unique_index(:identities, [:provider, :email])
   end
 
   def down do
