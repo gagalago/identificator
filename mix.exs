@@ -34,15 +34,15 @@ defmodule Identificator.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix", branch: "jv-ecto-2", override: true},
+      {:phoenix, github: "phoenixframework/phoenix", branch: "master", override: true},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_ecto, ">= 3.0.0-rc"},
+      {:phoenix_ecto, "~> 3.0.0-rc"},
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 2.4" },
-      {:guardian, github: "potatosalad/guardian", branch: "master"},
+      {:guardian, github: "ueberauth/guardian", branch: "master"},
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:dogma, "~> 0.1.4", only: [:dev, :test]},

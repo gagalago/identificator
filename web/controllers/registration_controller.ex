@@ -13,6 +13,8 @@ defmodule Identificator.RegistrationController do
         conn
         |> put_status(:created)
         |> put_resp_header("location", identity_path(conn, :show, identity))
+        |> Guardian.Plug.api_sign_in(identity)
+        |> (&put_resp_header(&1, "authorization", Guardian.Plug.current_token(&1))).()
         |> render("show.json", identity: identity)
       {:error, changeset} ->
         conn

@@ -63,3 +63,12 @@ config :identificator, Identificator.Repo,
 # served after a hot upgrade:
 #
 #     config :identificator, Identificator.Endpoint, root: "."
+
+config :guardian, Guardian,
+  allowed_algos: ["RS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "identificator",
+  ttl: { 30, :days },
+  verify_issuer: true, # optional
+  secret_key: fn -> JOSE.JWK.from_binary(System.get_env("GUARDIAN_SECRET_KEY")) end,
+  serializer: Identificator.GuardianSerializer

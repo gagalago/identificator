@@ -4,7 +4,8 @@ alias Dogma.Rule
 config :dogma,
   rule_set: Dogma.RuleSet.All,
   exclude: [
-    ~r(\Alib/vendor/)
+    ~r(\Alib/vendor/),
+    ~r{\Aconfig/(dev|test)\.exs\Z}
   ],
   override: [
     %Rule.LineLength{max_length: 100},

@@ -27,6 +27,4 @@ config :phoenix, :generators,
   migration: true,
   binary_id: false
 
-import_config "guardian.exs"
-
 config :identificator, Identificator.Gettext, default_locale: "en"
