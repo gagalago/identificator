@@ -11,7 +11,9 @@ defmodule Identificator.IdentityTest do
   end
 
   test "registration_changeset with valid attributes" do
-    changeset = Identity.registration_changeset(%Identity{}, fields_for(:identity, password: "password"))
+    changeset = Identity.registration_changeset(
+      %Identity{}, fields_for(:identity, password: "password")
+    )
     assert changeset.valid?
   end
 end

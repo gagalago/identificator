@@ -4,14 +4,15 @@ defmodule Identificator.Mixfile do
   def project do
     [
       app: :identificator,
-       version: "0.0.1",
-       elixir: "~> 1.0",
-       elixirc_paths: elixirc_paths(Mix.env),
-       compilers: [:phoenix, :gettext] ++ Mix.compilers,
-       build_embedded: Mix.env == :prod,
-       start_permanent: Mix.env == :prod,
-       aliases: aliases,
-       deps: deps
+      version: "0.0.1",
+      elixir: "~> 1.0",
+      elixirc_paths: elixirc_paths(Mix.env),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      preferred_cli_env: ["white_bread.run": :test],
+      aliases: aliases,
+      deps: deps
     ]
   end
 
@@ -22,14 +23,13 @@ defmodule Identificator.Mixfile do
     [
       mod: {Identificator, []},
       applications: [
-        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex,
-        :phoenix_pubsub
+        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex
       ]
     ]
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support", "features"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
   # Specifies your project dependencies.
@@ -38,7 +38,6 @@ defmodule Identificator.Mixfile do
   defp deps do
     [
       {:phoenix, "~> 1.2.0-rc"},
-      {:phoenix_pubsub, "~> 1.0.0-rc"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_ecto, "~> 3.0.0-rc"},
       {:phoenix_html, "~> 2.4"},
@@ -49,9 +48,9 @@ defmodule Identificator.Mixfile do
       {:guardian, github: "ueberauth/guardian", branch: "master"},
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
-      {:dogma, "~> 0.1.4", only: [:dev, :test]},
-      {:white_bread, "~> 2.6", only: [:dev, :test]},
-      {:ex_machina, "~> 0.6.1", only: :test},
+      {:dogma, "~> 0.1", only: [:dev, :test]},
+      {:white_bread, "~> 2.7", only: :test},
+      {:ex_machina, "~> 0.6", only: :test},
       {:faker, "~> 0.6", only: :test}
     ]
   end
@@ -64,9 +63,9 @@ defmodule Identificator.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test":       ["ecto.create --quiet", "ecto.migrate", "test"]
+      "ecto.setup":      ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset":      ["ecto.drop", "ecto.setup"],
+      "test":            ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end
