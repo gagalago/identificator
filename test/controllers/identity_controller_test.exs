@@ -1,5 +1,5 @@
 defmodule Identificator.IdentityControllerTest do
-  use Identificator.ConnCase, db: true
+  use Identificator.ConnCase, async: true
 
   alias Identificator.Identity
   @valid_attrs :identity |> fields_for |> Enum.filter(fn {_, v} -> v != nil end) |> Enum.into(%{})

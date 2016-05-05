@@ -21,7 +21,10 @@ defmodule Identificator.Mixfile do
   def application do
     [
       mod: {Identificator, []},
-      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex]
+      applications: [
+        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex,
+        :phoenix_pubsub
+      ]
     ]
   end
 
@@ -34,7 +37,8 @@ defmodule Identificator.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix", branch: "master", override: true},
+      {:phoenix, "~> 1.2.0-rc"},
+      {:phoenix_pubsub, "~> 1.0.0-rc"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_ecto, "~> 3.0.0-rc"},
       {:phoenix_html, "~> 2.4"},
@@ -62,7 +66,7 @@ defmodule Identificator.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test":       ["ecto.create", "ecto.migrate", "test"]
+      "test":       ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

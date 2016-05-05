@@ -1,18 +1,17 @@
 defmodule Identificator.IdentityTest do
-  use Identificator.ModelCase, db: true
+  use Identificator.ModelCase, async: true
 
   alias Identificator.Identity
 
   @valid_attrs fields_for(:identity)
-  @invalid_attrs %{}
 
   test "changeset with valid attributes" do
     changeset = Identity.changeset(%Identity{}, @valid_attrs)
     assert changeset.valid?
   end
 
-  test "changeset with invalid attributes" do
-    changeset = Identity.changeset(%Identity{}, @invalid_attrs)
-    refute changeset.valid?
+  test "registration_changeset with valid attributes" do
+    changeset = Identity.registration_changeset(%Identity{}, fields_for(:identity, password: "password"))
+    assert changeset.valid?
   end
 end

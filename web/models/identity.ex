@@ -38,10 +38,10 @@ defmodule Identificator.Identity do
   def registration_changeset(model, params \\ %{}) do
     model
     |> cast(params, ~w(email password), @optional_fields)
-    |> put_change(:provider_id, params["email"])
+    |> (&put_change(&1, :provider_id, &1.changes.email)).()
     |> put_change(:provider, "email")
     |> validate_length(:password, min: 8)
-    |> put_change(:auth_settings, %{"password" => hashpwsalt(params["password"])})
+    |> (&put_change(&1, :auth_settings, %{password: hashpwsalt(&1.changes.password)})).()
     |> changeset
   end
 end

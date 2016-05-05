@@ -1,5 +1,5 @@
 defmodule Identificator.RegistrationControllerTest do
-  use Identificator.ConnCase, db: true
+  use Identificator.ConnCase, async: true
 
   alias Identificator.Identity
   @attrs %{email: Faker.Internet.email, password: "azertyuiop"}

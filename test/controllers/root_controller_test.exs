@@ -1,5 +1,5 @@
 defmodule Identificator.RootControllerTest do
-  use Identificator.ConnCase
+  use Identificator.ConnCase, async: true
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
