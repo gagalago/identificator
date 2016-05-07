@@ -6,6 +6,8 @@ identificator
 To generate rsa keys
 --------------------
 
+[Jose JWT](https://hexdocs.pm/jose/JOSE.JWT.html)
 ```elixir
 jwk_rs512 = JOSE.JWK.generate_key({:rsa, 4096})
+jwk_for_env = JOSE.JWK.to_binary(jwk_rs512)
 ```

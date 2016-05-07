@@ -5,6 +5,7 @@ defmodule Identificator.Contexts.PasswordContext do
   use Phoenix.ConnTest
   import Identificator.Router.Helpers
   alias Identificator.Repo
+  import Swoosh.TestAssertions
   # The default endpoint for testing
   @endpoint Identificator.Endpoint
 
@@ -45,6 +46,9 @@ defmodule Identificator.Contexts.PasswordContext do
   end
 
   and_ ~r/^He receives an email with an url to validate his account$/, fn state ->
-    {:unimplemted, state}
+    %{attr: %{email: email}} = state
+    identity = Repo.get_by(Identity, %{provider: "email", email: email})
+    assert_email_sent Identificator.RegistrationMailer.confirm(identity)
+    {:ok, state}
   end
 end

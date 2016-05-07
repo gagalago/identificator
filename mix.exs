@@ -23,7 +23,7 @@ defmodule Identificator.Mixfile do
     [
       mod: {Identificator, []},
       applications: [
-        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex
+        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :swoosh
       ]
     ]
   end
@@ -51,7 +51,8 @@ defmodule Identificator.Mixfile do
       {:dogma, "~> 0.1", only: [:dev, :test]},
       {:white_bread, "~> 2.7", only: :test},
       {:ex_machina, "~> 0.6", only: :test},
-      {:faker, "~> 0.6", only: :test}
+      {:faker, "~> 0.6", only: :test},
+      {:swoosh, "~> 0.3.0"}
     ]
   end
 

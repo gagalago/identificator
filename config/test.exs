@@ -18,6 +18,9 @@ config :identificator, Identificator.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
+config :identificator, Identificator.Mailer,
+  adapter: Swoosh.Adapters.Test
+
 config :guardian, Guardian,
   allowed_algos: ["RS512"], # optional
   verify_module: Guardian.JWT,  # optional

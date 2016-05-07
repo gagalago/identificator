@@ -64,6 +64,11 @@ config :identificator, Identificator.Repo,
 #
 #     config :identificator, Identificator.Endpoint, root: "."
 
+config :identificator, Identificator.Mailer,
+  adapter: Swoosh.Adapters.Mailgun,
+  api_key: System.get_env("MAILGUN_API_KEY"),
+  domain: System.get_env("MAILGUN_DOMAIN")
+
 config :guardian, Guardian,
   allowed_algos: ["RS512"], # optional
   verify_module: Guardian.JWT,  # optional
