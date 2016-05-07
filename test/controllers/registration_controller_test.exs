@@ -2,7 +2,7 @@ defmodule Identificator.RegistrationControllerTest do
   use Identificator.ConnCase, async: true
 
   alias Identificator.Identity
-  @attrs %{email: Faker.Internet.email, password: "azertyuiop"}
+  @attrs %{email: Faker.Internet.email, password: "password"}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}

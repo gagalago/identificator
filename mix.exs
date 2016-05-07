@@ -65,7 +65,8 @@ defmodule Identificator.Mixfile do
     [
       "ecto.setup":      ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset":      ["ecto.drop", "ecto.setup"],
-      "test":            ["ecto.create --quiet", "ecto.migrate", "test"]
+      "test":            ["ecto.create --quiet", "ecto.migrate", "test"],
+      "white_bread.run": ["ecto.create --quiet", "ecto.migrate", "white_bread.run"]
     ]
   end
 end

@@ -11,6 +11,7 @@ defmodule Identificator.Identity do
     field :auth_settings, :map
     field :data, :map
     field :password, :string, virtual: true
+    field :confirmed_at, Ecto.DateTime
 
     timestamps
   end
