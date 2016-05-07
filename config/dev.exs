@@ -40,9 +40,7 @@ config :identificator, Identificator.Repo,
   pool_size: 10
 
 config :identificator, Identificator.Mailer,
-  adapter: Swoosh.Adapters.Mailgun,
-  api_key: System.get_env("MAILGUN_API_KEY"),
-  domain: System.get_env("MAILGUN_DOMAIN")
+  adapter: Swoosh.Adapters.Local
 
 config :guardian, Guardian,
   allowed_algos: ["RS512"], # optional

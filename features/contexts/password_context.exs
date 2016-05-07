@@ -11,9 +11,9 @@ defmodule Identificator.Contexts.PasswordContext do
 
   alias Identificator.Identity
 
-  feature_starting_state fn  ->
+  scenario_starting_state fn state ->
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Identificator.Repo)
-    %{conn: Phoenix.ConnTest.build_conn()}
+    state |> Map.put(:conn, Phoenix.ConnTest.build_conn())
   end
 
   given_ ~r/^An unknow user$/, fn state ->
@@ -48,7 +48,7 @@ defmodule Identificator.Contexts.PasswordContext do
   and_ ~r/^He receives an email with an url to validate his account$/, fn state ->
     %{attr: %{email: email}} = state
     identity = Repo.get_by(Identity, %{provider: "email", email: email})
-    assert_email_sent Identificator.RegistrationMailer.confirm(identity)
+    assert_email_sent subject: "Email confirmation", to: identity.email
     {:ok, state}
   end
 end

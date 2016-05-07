@@ -1,0 +1,2 @@
+Welcome on board!
+Last step is to confirm your account by clicking on this link: <%= @confirmation_url %>

@@ -1,0 +1,4 @@
+<div>
+  <h1>Welcome on board!</h1>
+  <p>Last step is to confirm your account by clicking on this link: <a href="<%= @confirmation_url %>"><%= @confirmation_url %></a>.</p>
+</div>

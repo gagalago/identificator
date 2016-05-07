@@ -10,7 +10,6 @@ script:
   - mix test
   - mix credo --strict
   - mix dogma
-  - mix white_bread.run --tags important
 services:
   - postgresql
 before_script:

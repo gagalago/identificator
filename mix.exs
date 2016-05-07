@@ -22,9 +22,16 @@ defmodule Identificator.Mixfile do
   def application do
     [
       mod: {Identificator, []},
-      applications: [
-        :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :swoosh
-      ]
+      applications: app_list(Mix.env)
+    ]
+  end
+
+  defp app_list(:dev), do: [:dotenv | app_list]
+  defp app_list(_), do: app_list
+  defp app_list do
+    [
+      :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :swoosh,
+      :phoenix_swoosh
     ]
   end
 
@@ -37,9 +44,9 @@ defmodule Identificator.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.2.0-rc"},
+      {:phoenix, "~> 1.2-rc"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_ecto, "~> 3.0.0-rc"},
+      {:phoenix_ecto, "~> 3.0-rc"},
       {:phoenix_html, "~> 2.4"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
@@ -52,7 +59,9 @@ defmodule Identificator.Mixfile do
       {:white_bread, "~> 2.7", only: :test},
       {:ex_machina, "~> 0.6", only: :test},
       {:faker, "~> 0.6", only: :test},
-      {:swoosh, "~> 0.3.0"}
+      {:swoosh, "~> 0.3.0"},
+      {:dotenv, "~> 2.1", only: [:dev, :test]},
+      {:phoenix_swoosh, github: "gagalago/phoenix_swoosh", branch: "phoenix-12"}
     ]
   end
 

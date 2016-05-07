@@ -2,7 +2,7 @@ defmodule Identificator.RegistrationController do
   use Identificator.Web, :controller
 
   alias Identificator.Identity
-  alias Identificator.RegistrationMailer
+  alias Identificator.RegistrationEmail
   alias Identificator.Mailer
 
   plug :scrub_params, "registration" when action in [:create]
@@ -13,7 +13,7 @@ defmodule Identificator.RegistrationController do
     case Repo.insert(changeset) do
       {:ok, identity} ->
         identity
-        |> RegistrationMailer.confirm
+        |> RegistrationEmail.confirm
         |> Mailer.deliver
 
         conn

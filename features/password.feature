@@ -7,7 +7,6 @@ Feature: Password identification
     When he want to sign in with an email and password
     Then He receives an signature of his identity
 
-  @important
   Scenario: Create an account with password
     Given An unknow user
     When He want to sign up with an email and password
