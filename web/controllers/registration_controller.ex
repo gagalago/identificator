@@ -12,7 +12,10 @@ defmodule Identificator.RegistrationController do
 
     case Repo.insert(changeset) do
       {:ok, identity} ->
-        RegistrationMailer.confirm(identity) |> Mailer.deliver
+        identity
+        |> RegistrationMailer.confirm
+        |> Mailer.deliver
+
         conn
         |> put_status(:created)
         |> put_resp_header("location", identity_path(conn, :show, identity))
