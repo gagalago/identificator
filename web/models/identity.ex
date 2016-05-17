@@ -1,6 +1,7 @@
 defmodule Identificator.Identity do
   use Identificator.Web, :model
   import Comeonin.Pbkdf2, only: [hashpwsalt: 1]
+  alias Ueberauth.Auth
 
   @primary_key {:id, Ecto.UUID, read_after_writes: true}
   schema "identities" do
@@ -37,12 +38,17 @@ defmodule Identificator.Identity do
   Creates a changeset for registration
   """
   def registration_changeset(model, params \\ %{}) do
-    model
+    model = model
     |> cast(params, ~w(email password), @optional_fields)
-    |> (&put_change(&1, :provider_id, &1.changes.email)).()
-    |> put_change(:provider, "email")
     |> validate_length(:password, min: 8)
-    |> (&put_change(&1, :auth_settings, %{password: hashpwsalt(&1.changes.password)})).()
+    model
+    |> put_change(:provider, "email")
+    |> put_change(:provider_id, model.changes.email)
+    |> put_change(:auth_settings, %{password: hashpwsalt(model.changes.password)})
     |> changeset
+  end
+
+  def find_or_create(%Auth{provider: :identity} = auth) do
+    :unimplemted
   end
 end

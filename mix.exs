@@ -31,7 +31,7 @@ defmodule Identificator.Mixfile do
   defp app_list do
     [
       :phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :swoosh,
-      :phoenix_swoosh
+      :phoenix_swoosh, :ueberauth_identity
     ]
   end
 
@@ -52,7 +52,8 @@ defmodule Identificator.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 2.4" },
-      {:guardian, github: "ueberauth/guardian", branch: "master"},
+      {:guardian, "~> 0.11.1"},
+      {:ueberauth_identity, "~> 0.2"},
       {:cutkey, github: "potatosalad/cutkey"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:dogma, "~> 0.1", only: [:dev, :test]},

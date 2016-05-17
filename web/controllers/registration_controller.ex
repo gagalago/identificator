@@ -12,15 +12,18 @@ defmodule Identificator.RegistrationController do
 
     case Repo.insert(changeset) do
       {:ok, identity} ->
+        claims = Guardian.Claims.app_claims |> Guardian.Claims.ttl({2, :days})
+        conn   = Guardian.Plug.api_sign_in(conn, identity, claims)
+        token  = Guardian.Plug.current_token(conn)
+
         identity
-        |> RegistrationEmail.confirm
+        |> RegistrationEmail.confirm(token)
         |> Mailer.deliver
 
         conn
         |> put_status(:created)
         |> put_resp_header("location", identity_path(conn, :show, identity))
-        |> Guardian.Plug.api_sign_in(identity)
-        |> (&put_resp_header(&1, "authorization", Guardian.Plug.current_token(&1))).()
+        |> put_resp_header("authorization", token)
         |> render("show.json", identity: identity)
       {:error, changeset} ->
         conn

@@ -2,6 +2,7 @@ defmodule Identificator.Router do
   @moduledoc false
 
   use Identificator.Web, :router
+  require Ueberauth
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -30,6 +31,7 @@ defmodule Identificator.Router do
 
     resources "/identities", IdentityController, only: [:show, :index, :create, :update, :delete]
     resources "/registration", RegistrationController, only: [:create]
+    post "/:provider/callback", AuthController, :callback
   end
 
   if Mix.env == :dev do

@@ -1,17 +1,13 @@
 defmodule Identificator.RegistrationEmail do
-  use Phoenix.Swoosh, view: Identificator.RegistrationEmailView, layout: {Identificator.LayoutView, :email}
+  alias Identificator.RegistrationEmailView
+  alias Identificator.LayoutView
+  use Phoenix.Swoosh, view: RegistrationEmailView, layout: {LayoutView, :email}
 
-  def confirm(identity) do
+  def confirm(identity, token) do
     new
     |> to(identity.email)
     |> from("hello@identificator.com")
     |> subject("Email confirmation")
-    |> render_body(:confirm, %{confirmation_url: confirmation_url(identity)})
-  end
-
-  defp confirmation_url(identity) do
-    { :ok, jwt, claims } = Guardian.encode_and_sign(identity)
-    { :ok, jwt, claims } = Guardian.refresh!(jwt, claims, %{ttl: { 48, :hours}})
-    jwt
+    |> render_body(:confirm, %{confirmation_url: token})
   end
 end

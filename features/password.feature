@@ -4,12 +4,12 @@ Feature: Password identification
 
   Scenario: Connection
     Given An user with an account
-    When he want to sign in with an email and password
+    When He sign in with an email and password
     Then He receives an signature of his identity
 
   Scenario: Create an account with password
     Given An unknow user
-    When He want to sign up with an email and password
+    When He sign up with his email and password
     Then An unconfirmed account is created for this user
     And He receives an email with an url to validate his account
 
@@ -22,7 +22,7 @@ Feature: Password identification
 
   Scenario: Create an account without password
     Given An unknow user
-    When He want to sign up with only an email
+    When He sign up with only an email
     Then An unconfirmed account is created for this user
     And He receives an email with an url to change his password
 
@@ -35,7 +35,7 @@ Feature: Password identification
     Given An user with an account
     And He has receive an recover password url
     When He goes to that url to change his password
-    And he provides his previous and next password
+    And He provides his previous and next password
     Then His account is validated
     And His password is updated
     And He receives an signature of his identity
