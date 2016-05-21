@@ -24,7 +24,7 @@ defmodule Identificator.RegistrationController do
         |> put_status(:created)
         |> put_resp_header("location", identity_path(conn, :show, identity))
         |> put_resp_header("authorization", token)
-        |> render("show.json", identity: identity)
+        |> render("show.json", identity: identity, token: token)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
