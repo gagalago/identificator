@@ -17,10 +17,10 @@ defmodule Identificator.AuthController do
         conn
         |> Guardian.Plug.api_sign_in(identity)
         |> redirect(to: "/")
-      {:error, changeset} ->
+      {:error, message} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(Identificator.ChangesetView, "error.json", changeset: changeset)
+        |> render(Identificator.AuthView, "password_error.json")
     end
   end
 end

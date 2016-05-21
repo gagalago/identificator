@@ -1,7 +1,9 @@
 defmodule Identificator.Identity do
   use Identificator.Web, :model
-  import Comeonin.Pbkdf2, only: [hashpwsalt: 1]
+  import Comeonin.Pbkdf2, only: [hashpwsalt: 1, checkpw: 2]
   alias Ueberauth.Auth
+  alias Identificator.Identity
+  alias Identificator.Repo
 
   @primary_key {:id, Ecto.UUID, read_after_writes: true}
   schema "identities" do
@@ -48,7 +50,24 @@ defmodule Identificator.Identity do
     |> changeset
   end
 
+  def find_or_create(%Auth{
+    provider:    :identity,
+    credentials: %Auth.Credentials{other: %{password: password}},
+    info:        %Auth.Info{email: email}
+  } = auth) when not is_nil(email) do
+    query = from identity in Identity, where: identity.email == ^email
+    case Repo.one(query) do
+      %Identity{} = identity ->
+        if checkpw(password, identity.auth_settings["password"]) do
+          {:ok, identity}
+        else
+          {:error, "invalid password"}
+        end
+      nil ->
+        {:error, "unknow email"}
+    end
+  end
   def find_or_create(%Auth{provider: :identity} = auth) do
-    :unimplemted
+    {:error, "missing email or password"}
   end
 end
